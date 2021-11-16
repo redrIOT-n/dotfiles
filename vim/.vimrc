@@ -1,322 +1,92 @@
-noh
-nnoremap <CR> <Nop>
 syntax on
-let mapleader = "\<space>"
-set encoding=utf-8
+let mapleader="\<space>"
+set number
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set list
 set hidden
 set nobackup
-"set makeprg=make all
-set termguicolors
-set t_Co=16
 set nowritebackup
-set cmdheight=2
-set updatetime=300
 set shortmess+=c
-set nocompatible
-set showmode
-set showcmd
-set ruler
-set number
-set cursorline
-set expandtab
-set noshiftround
-set lazyredraw
-set magic
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set encoding=utf-8
-set modelines=0
-set formatoptions=tqn1
-set tabstop=4
-set shiftwidth=2
-set softtabstop=4
-set cmdheight=1
-set laststatus=2
-set backspace=indent,eol,start
-set list
-set listchars=tab:\│\ 
-set matchpairs+=<:>
-set statusline=%1*\ file\ %3*\ %f\ %4*\ 
-set statusline+=%=\ 
-set statusline+=%3*\ %l\ of\ %L\ %2*\ line\ 
-set scrolloff=8
-nmap <C-S> :w<CR>
-nmap <C-_> :noh<CR>
-nmap <S-Left> v<Left>
-nmap <S-Right> v<Right>
-nmap <C-Up> 8k
-nmap <C-Down> 8j
-nmap <C-O> o<Esc>
-nmap <C-Z> u
-nmap <C-Y> <C-R>
-nmap <C-F> /
-nmap <C-H> i<C-W><Esc>
-nmap <F3> :set invnumber<CR>
-nmap <F4> :q<CR>
-nmap <C-v> "+p
-imap <C-S> <Esc>:w<CR>a
-imap <C-_> <Esc>:noh<CR>a
-imap <S-Left> <Esc>lv<Left>
-imap <S-Right> <Esc>lv<Right>
-imap <C-Up> <Esc>8ka
-imap <C-Down> <Esc>8ja
-imap <C-O> <Esc>o
-imap <C-Z> <Esc>ua
-imap <C-Y> <Esc><C-R>a
-imap <Nul> <C-N>
-imap <C-F> <Esc>/
-imap <C-H> <C-W>
-imap <C-V> <Esc>pa
-imap <F3> <Esc>:set invnumber<CR>a
-imap <F4> <Esc>:q<CR>
-vmap <C-Up> 8k
-vmap <C-Down> 8j
-hi linenr ctermfg=8
-hi cursorline cterm=NONE
-hi cursorlinenr ctermfg=15
-hi comment ctermfg=8
-hi pmenu ctermbg=0 ctermfg=NONE
-hi pmenusel ctermbg=4 ctermfg=0
-hi pmenusbar ctermbg=0
-hi pmenuthumb ctermbg=7
-hi matchparen ctermbg=black ctermfg=NONE
-hi search ctermbg=0
-hi statusline ctermbg=0 ctermfg=NONE
-hi statuslinenc ctermbg=0 ctermfg=0
-hi user1 ctermbg=1 ctermfg=0
-hi user2 ctermbg=4 ctermfg=0
-hi user3 ctermbg=0 ctermfg=NONE
-hi user4 ctermbg=NONE ctermfg=NONE
-hi group1 ctermbg=NONE ctermfg=0
-autocmd colorscheme * hi clear cursorline
-match group1 /\t/
+set signcolumn=yes
+set updatetime=300
+
+set termguicolors
+hi! Cursor ctermfg=1 ctermbg=1 guifg=#FF0000 guibg=#FF0000
+set guicursor=n-c-v:block-Cursor/Cursor-blinkon0
+set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait300-blinkon200-blinkoff150
+
 
 call plug#begin('~/.vim/autoload')
 
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'kyoz/purify', { 'rtp': 'vim' }
-Plug 'https://github.com/nanotech/jellybeans.vim.git'
-Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'norcalli/nvim-colorizer.lua'
+"Plug 'https://github.com/glepnir/spaceline.vim.git'
+"Plug 'safv12/andromeda.vim'
+"Plug 'meain/hima-vim'
+Plug 'https://github.com/kjssad/quantum.vim.git'
+"Plug 'severij/vadelma'
+Plug 'romgrk/doom-one.vim'
+"Plug 'burntcarrot/punchy.vim'
+"Plug 'https://github.com/TroyFletcher/vim-colors-synthwave.git'
+"Plug 'https://github.com/thedenisnikulin/vim-cyberpunk.git'
+"Plug 'https://github.com/Zabanaa/neuromancer.vim.git'
+Plug 'https://github.com/joshdick/onedark.vim.git'
 Plug 'https://github.com/lifepillar/vim-gruvbox8.git'
+"Plug 'ghifarit53/tokyonight-vim'
 Plug 'https://github.com/morhetz/gruvbox.git'
+"Plug 'NLKNguyen/papercolor-theme'
+"Plug 'liuchengxu/space-vim-theme'
+"Plug 'alepez/vim-gtest'
+
+Plug 'cdelledonne/vim-cmake'
+Plug 'justinmk/vim-sneak'
 Plug 'preservim/nerdcommenter'
 Plug 'frazrepo/vim-rainbow'
-"Plug 'fholgado/minibufexpl.vim'
-Plug 'xavierd/clang_complete'
 Plug 'preservim/tagbar'
-Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'https://github.com/joshdick/onedark.vim.git'
 Plug 'preservim/nerdtree'
-Plug 'liuchengxu/space-vim-theme'
-Plug 'sainnhe/sonokai'
-Plug 'ghifarit53/tokyonight-vim'
-"Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'sonph/onehalf',{ 'rtp': 'vim' }
-Plug 'https://github.com/liuchengxu/space-vim-dark.git'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'jremmen/vim-ripgrep'
 Plug 'https://github.com/Raimondi/delimitMate.git'
-Plug 'voldikss/vim-floaterm'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
-Plug 'https://github.com/vim-scripts/c.vim.git'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'https://github.com/mkitt/tabline.vim.git'
-"Plug 'https://github.com/powerline/powerline.git'
-Plug 'https://github.com/wadackel/vim-dogrun.git'
-Plug 'https://github.com/arzg/vim-colors-xcode.git'
-"Plug 'powerline/powerline'
-Plug 'safv12/andromeda.vim'
-Plug 'romgrk/doom-one.vim'
-Plug 'https://github.com/NLKNguyen/c-syntax.vim.git'
+
+Plug 'MattesGroeger/vim-bookmarks'
+
+Plug 'https://github.com/wsdjeg/vim-assembly.git'
+"Plug 'https://github.com/calculuswhiz/vim-GAS-x86_64-highlighter.git'
+"Plug 'https://github.com/NLKNguyen/c-syntax.vim.git'
 
 call plug#end()
 
-" Correct RGB escape codes for vim inside tmux
-if !has('nvim') && $TERM ==# 'screen-256color'
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
-""" floatterm
-let g:floatterm_position='bottom'
-let g:floaterm_width=0.6
-let g:floaterm_height=0.2
-
-nnoremap <Leader>ft :FloatermNew<CR>
-nnoremap <Leader>t :FloatermToggle<CR>
-
-""" fzf
+"########################## fuzzy #######################"
+nnoremap <Leader>gg :Ag<CR>
+nnoremap <Leader>fi :Files<CR>
 nnoremap <Leader>gf :GFiles<CR>
-nnoremap <Leader>fi  :Files<CR>
 nnoremap <Leader>tgg :Tags<CR>
 nnoremap <Leader>bu :Buffers<CR>
-nnoremap <Leader>gg :Ag<CR>
+
+"########################## tagbar #######################"
 nnoremap <Leader>tb :TagbarToggle<CR>
+
+"########################## nerdtree #######################"
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
 nnoremap  <Leader>n :NERDTreeToggle<CR>
-
-"" flutter
-
-
-"some additional keys for buffers
-nnoremap <Leader>e<CR> :bd<CR>
-nnoremap <Leader>1<CR> :1b<CR>
-nnoremap <Leader>2<CR> :2b<CR>
-nnoremap <Leader>3<CR> :3b<CR>
-nnoremap <Leader>4<CR> :4b<CR>
-nnoremap <Leader>5<CR> :5b<CR>
-nnoremap <Leader>6<CR> :6b<CR>
-nnoremap <Leader>7<CR> :7b<CR>
-nnoremap <Leader>8<CR> :8b<CR>
-nnoremap <Leader>9<CR> :9b<CR>
-nnoremap <Leader>0<CR> :10b<CR>
-
-
-
-
-
-""" rainbow brackets.. (not the gay rainbow)
-let g:rainbow_active = 1
-
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-
-""" tagbar
-let g:tagbar_width = 30
-
-""" colorscheme
-set background=dark
-colorscheme onedark
-"onedark
-"purify
-"PaperColor
-
-"let g:PaperColor_Theme_Options = {
-""  \   'theme': {
-""  \     'default.light': {
-""  \       'transparent_background' : 0,
-""  \       'override' : {
-""  \         'color00' : ['#1c1c1c', '234'],
-""  \         'linenumber_bg' : ['#1c1c1c', '234'],
-""  \         'color05' : ['#878787', '244'],
-""  \         'color07' : ['#d0d0d0', '252'],
-""  \         'color08' : ['#585858', '240']
-""  \       }
-""  \     }
-""  \   }
-""  \ }
-
-if &term =~ "xterm\\|rxvt"
-   "" use an orange cursor in insert mode
-    let &t_SI = "\<Esc>]12;purple\x7"
-    "use a red cursor otherwise
-    let &t_EI = "\<Esc>]12;blue\x7"
-    silent !echo -ne "\033]12;blue\007"
-    "reset cursor when vim exits
-    autocmd VimLeave * silent !echo -ne "\033]112\007"
-    "use \003]12;gray\007 for gnome-terminal
-endif
-
-
-""" floaterm
-let g:floaterm_autoclose = 2
-
-""" powerline 
-let g:Powerline_symbols = 'fancy'
-
-""" airline themes / lightline 
-
-" air-line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-set guifont=DroidSansMono\ Nerd\ Font\ 12
-
-" airline symbols
-"circles 
-"set t_Co=256
-"let g:airline_left_sep = "\uE0B4"
-"let g:airline_right_sep = "\uE0B6"
-"let g:airline_left_alt_sep = "\uE0B5"
-"let g:airline_right_alt_sep = "\uE0B7"
-
-"cuts
-"let g:airline_left_sep =  "\uE0BC"
-"let g:airline_right_sep = "\uE0BE"
-"let g:airline_left_alt_sep = "\uE0BD"
-"let g:airline_right_alt_sep = "\uE0BF"
-
-"dust
-"let g:airline_left_sep =  "\uE0C6"
-"let g:airline_right_sep = "\uE0C7"
-"let g:airline_left_alt_sep = "\uE0BD"
-"let g:airline_right_alt_sep = "\uE0BF"
-
-
-
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
-
-"let g:airline_theme='solarized'
-"let g:lightline = {}
-"let g:lightline.colorscheme = 'tokyonight
-
-"let g:lightline = {'colorscheme': 'onedark'}    
-"go back to airline after nice icons
-"let g:tabline#enabled = 1
-
-""" nerd tree
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
-
+let NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 30
 "autocmd BufWinEnter * silent NERDTreeMirror
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
 "autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
 let NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -334,57 +104,131 @@ let g:NERDTreeDirArrowCollapsiblDTreeGitStatusIndicatorMapCustom = {
                 \ }
 let g:NERDTreeGitStatusUseNerdFonts = 1
  
-""" go setup
-filetype plugin indent on
-filetype plugin on
 
-set autowrite
+"########################## floaterm #######################"
+let g:floaterm_position='bottom'
+let g:floaterm_width=1.0
+let g:floaterm_height=0.4
 
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_operators = 1
-
-let g:go_fmt_autosave = 1
-let g:go_fmt_command = "goimports"
-
-" Status line types/signatures
-let g:go_auto_type_info = 1
-
- " Run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
+nnoremap <Leader>ft :FloatermNew<CR>
+nnoremap <Leader>t :FloatermToggle<CR>
+nnoremap <Leader>ftp :FloatermNew python3<CR>
 
 
-""" autocomplete
+" floaterm and cmake
+nmap <c-t> :FloatermNew fff
+let g:cmake_link_compile_commands = 1
+
+nmap <Leader>cg :CMakeGenerate<CR>
+nnoremap <Leader>cm :CMakeBuild<CR>
+nmap <Leader>gt :GTestRunUnderCursor<CR>
+
+"########################## sneak label #######################"
+let g:sneak#label=1
+
+"########################## airline themes #######################"
+let g:airline#extensions#vimcmake#enabled=1
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+
+let g:airline_theme='onedark'
+
+"########################## colorscheme #######################"
+set background=dark
+colorscheme onedark 
+"" if Papercolor, we use a different cursor color
+"if colors_name == "PaperColor"
+"    if &term =~ "xterm\\|rxvt"
+       "" use an orange cursor in insert mode
+"        let &t_SI = "\<Esc>]12;purple\x7"
+        "use a red cursor otherwise
+"        let &t_EI = "\<Esc>]12;blue\x7"
+"        silent !echo -ne "\033]12;blue\007"
+        "reset cursor when vim exits
+"        autocmd VimLeave * silent !echo -ne "\033]112\007"
+        "use \003]12;gray\007 for gnome-terminal
+""    endif
+"endif
+
+"########################## rainbow brackets #######################"
+let g:rainbow_active = 1
+
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
+
+"########################## COC keybindings #######################"
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
 set encoding=utf-8
+
+" TextEdit might fail if hidden is not set.
 set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
 set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
 set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-"map <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>delimitMateCR"
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-" Recently vim can merge signcolumn and number column into one
+  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
 endif
 
-" Make enter  auto-select the first completion item and notify coc.nvim to
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -453,7 +297,7 @@ omap ac <Plug>(coc-classobj-a)
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+ nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -477,7 +321,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -496,3 +340,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+ 
