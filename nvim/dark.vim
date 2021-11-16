@@ -20,34 +20,22 @@ set guicursor+=i-ci:ver1-Cursor/Cursor-blinkwait300-blinkon200-blinkoff150
 
 call plug#begin('~/.nvim/autoload')
 
-"Plug 'burntcarrot/punchy.vim'
-"Plug 'https://github.com/TroyFletcher/vim-colors-synthwave.git'
-"Plug 'https://github.com/thedenisnikulin/vim-cyberpunk.git'
-
-Plug 'https://github.com/lawsdontapplytopigs/black_cherries.git'
-Plug 'https://github.com/srcery-colors/srcery-vim.git'
-Plug 'https://github.com/srcery-colors/srcery-vim.git'
-Plug 'https://github.com/tomasiser/vim-code-dark.git'
-Plug 'https://github.com/overcache/NeoSolarized.git'
-Plug 'https://github.com/sainnhe/edge.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'norcalli/nvim-colorizer.lua'
-"Plug 'https://github.com/glepnir/spaceline.vim.git'
-"Plug 'safv12/andromeda.vim'
-"Plug 'meain/hima-vim'
-"Plug 'https://github.com/kjssad/quantum.vim.git'
-"Plug 'severij/vadelma'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'safv12/andromeda.vim'
+Plug 'meain/hima-vim'
+Plug 'https://github.com/kjssad/quantum.vim.git'
+Plug 'severij/vadelma'
 Plug 'romgrk/doom-one.vim'
-"Plug 'burntcarrot/punchy.vim'
-"Plug 'https://github.com/TroyFletcher/vim-colors-synthwave.git'
-"Plug 'https://github.com/thedenisnikulin/vim-cyberpunk.git'
+Plug 'burntcarrot/punchy.vim'
+Plug 'https://github.com/TroyFletcher/vim-colors-synthwave.git'
+Plug 'https://github.com/thedenisnikulin/vim-cyberpunk.git'
 Plug 'https://github.com/Zabanaa/neuromancer.vim.git'
 Plug 'https://github.com/joshdick/onedark.vim.git'
-"Plug 'https://github.com/lifepillar/vim-gruvbox8.git'
-"Plug 'ghifarit53/tokyonight-vim'
+Plug 'https://github.com/lifepillar/vim-gruvbox8.git'
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'https://github.com/morhetz/gruvbox.git'
 Plug 'NLKNguyen/papercolor-theme'
-"Plug 'liuchengxu/space-vim-theme'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'alepez/vim-gtest'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'cdelledonne/vim-cmake'
@@ -74,8 +62,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'psliwka/vim-smoothie'
 Plug 'https://github.com/wsdjeg/vim-assembly.git'
 Plug 'https://github.com/calculuswhiz/vim-GAS-x86_64-highlighter.git'
-"Plug 'https://github.com/NLKNguyen/c-syntax.vim.git'
-Plug 'https://github.com/aurieh/discord.nvim.git'
+Plug 'https://github.com/NLKNguyen/c-syntax.vim.git'
 
 call plug#end()
 
@@ -143,7 +130,7 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 "########################## floaterm #######################"
 let g:floaterm_position='bottom'
 let g:floaterm_width=1.0
-let g:floaterm_height=0.3
+let g:floaterm_height=0.4
 
 nnoremap <Leader>ft :FloatermNew<CR>
 nnoremap <Leader>t :FloatermToggle<CR>
@@ -164,16 +151,10 @@ let g:sneak#label=1
 "########################## airline themes #######################"
 let g:airline#extensions#vimcmake#enabled=1
 
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-
-
-let g:airline_left_sep = "\uE0B4"
-let g:airline_left_alt_sep = "\uE0B5"
-let g:airline_right_sep = "\uE0B6"
-let g:airline_right_alt_sep = "\uE0B7"
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 "let g:airline_symbols.branch = ''
 "let g:airline_symbols.readonly = ''
@@ -182,11 +163,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
-let g:airline_theme='papercolor'
+let g:airline_theme='onedark'
 
 "########################## colorscheme #######################"
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme doom-one
 "" if Papercolor, we use a different cursor color
 "if colors_name == "PaperColor"
 "    if &term =~ "xterm\\|rxvt"
