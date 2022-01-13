@@ -1,0 +1,3 @@
+[submodule "tint2-theme-collections"]
+	path = tint2-theme-collections
+	url = git@github.com:addy-dclxvi/tint2-theme-collections.git
