@@ -1,0 +1,54 @@
+Config { font = "xft:JetBrains Mono:pixelsize:9:antialias=true:hinting=true"
+	   , additionalFonts = [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 6 Brands:pixelsize=12"
+                           ]
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [
+ 					 Run Com "echo" ["<fn=3>\xe61f</fn>"] "haskell" 3600
+					, Run Weather "VCBI" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Network "wlo1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "enp0s20f0u1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+					, Run Battery [
+						"-t", "<acstatus>: <left>% - <timeleft>",
+						"--",
+						--"-c", "charge_full",
+						"-O", "AC",
+						"-o", "Battery",
+						"-h", "green",
+						"-l", "red"
+					] 10
+                    -- cpu activity monitor
+        			, Run MultiCpu       
+						[ "--template" , "Cpu: <total0>%|<total1>%"
+                       	     , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                        ] 10
+
+        			-- cpu core temperature monitor
+        			, Run CoreTemp       
+						[ "--template" , "Temp: <core0>°C|<core1>°C"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "darkgreen"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                        ] 50
+			      	, Run DiskU
+         				[ ("/", "<icon=fa6-hdd-solid_24.xpm/>Disk: <free>") ]
+         				[] 20
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+    		    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%multicpu% - %coretemp% | %memory% | %wlo1% | %enp0s20f0u1% | %disku% | %battery% }{ <fc=#ee9a00>%date%</fc>| %VCBI% | %uname%"
+       }
